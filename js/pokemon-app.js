@@ -31,7 +31,7 @@ let map = new InteractiveMap({
 
 	initializeMap() {
 		// A good place to load landmarks
-		this.loadLandmarks("landmarks-shop-evanston", (landmark) => {
+		this.loadLandmarks("landmarks-highway-nu", (landmark) => {
 			// Keep this landmark?
 
 			// Keep all landmarks in the set
