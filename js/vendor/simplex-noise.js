@@ -26,7 +26,6 @@ Better rank ordering method by Stefan Gustavson in 2012.
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  SOFTWARE.
  */
-
 (function() {
   'use strict';
 
