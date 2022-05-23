@@ -10,7 +10,18 @@ const UPDATE_RATE = 100
  and some number of columns
  If its vertical, the columns can become sections in one column
  */
-
+ const catimages = [
+	"https://styles.redditmedia.com/t5_3obin/styles/communityIcon_5v6pv5kqz5241.PNG",
+	"https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/6d/ff/d8/6dffd8ac-61bf-dab9-4095-3b0435ac4ca3/source/256x256bb.jpg",
+	"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwwHTc0ijW8nPDs8hu2nlzMhzrbKqqEZHAGQ&usqp=CAU",
+	"https://wallpaper.sc/en/ipad/wp-content/uploads/2018/08/ipad-2048x2048-thumbnail_01636-256x256.jpg",
+	"https://a.thumbs.redditmedia.com/HaXDOt6VCSDYHNnBG2kmo7xArWVWkl8_QgppfGAQP-0.png",
+	"https://images.pexels.com/users/avatars/3377911/sahar-tran-519.jpeg?auto=compress&fit=crop&h=256&w=256",
+	"https://i.pinimg.com/474x/85/e2/52/85e252c562d58c8e743af09de056ca6e.jpg",
+	"https://pbs.twimg.com/profile_images/664169149002874880/z1fmxo00_400x400.jpg",
+	"https://bot.to/wp-content/uploads/2020/10/swag-cat_5f83fd035d490.png",
+	"https://i.pinimg.com/474x/1b/e4/94/1be494c3c065c9c97da3231f7303ee85.jpg"
+				   ]
 
 let landmarkCount = 0
 
@@ -89,13 +100,12 @@ let map = new InteractiveMap({
 			// Add points to my gamestate
 			gameState.points += landmark.points
 
-			
-
 			// Have we captured this?
 			if (!gameState.captured.includes(landmark.name)) {
 				gameState.captured.push(landmark.name)
 				// Add a message
-				gameState.messages.push(`You captured ${landmark.name} for ${landmark.points} points`)
+				let message = `You captured ${landmark.name} for ${landmark.points} points`
+				gameState.messages.push(message)
 			}
 
 		}
@@ -116,23 +126,23 @@ let map = new InteractiveMap({
 		if (landmark.isPlayer) {
 			return {
 				icon: "person_pin_circle",
+				iconColor:[0,0,.3],
 				noBG: true // skip the background
 			}
 		}
 		
 		// Pick out a hue, we can reuse it for foreground and background
-		let hue = landmark.points*.1
+		let hue = 1
 		return {
-			label: landmark.name + "\n" + landmark.distanceToPlayer +"m",
-			fontSize: 8,
+			label: landmark.name + "\n" + landmark.distanceToPlayer +"m"+"\n",
+			fontSize: 9,
 
 			// Icons (in icon folder)
-			icon: "person_pin_circle",
+			icon: "pets",
 
 			// Colors are in HSL (hue, saturation, lightness)
-			iconColor: [hue, 1, .5],
-			bgColor: [hue, 1, .2],
-			noBG: false // skip the background
+			iconColor: [hue, 0, 0],
+			noBG: true // skip the background
 		}
 	},
 
@@ -152,7 +162,7 @@ window.onload = (event) => {
 
 				<div class="main-column" style="flex:1;overflow:scroll;max-height:200px">
 					(TODO, add your own gamestate)
-					{{gameState}}
+					{{gameState.messages[gameState.messages.length-1]}}
 					
 				</div>
 
