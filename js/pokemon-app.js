@@ -75,7 +75,7 @@ let map = new InteractiveMap({
 		landmark.color = [Math.random(), 1, .5]
 
 		// Give it a random number of points
-		landmark.points = Math.floor(Math.random()*10 + 1)
+		landmark.points = 5
 		return landmark
 	}, 
 
