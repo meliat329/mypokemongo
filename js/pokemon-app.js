@@ -43,6 +43,7 @@ let map = new InteractiveMap({
 
 		// Create random landmarks
 		// You can also use this to create trails or clusters for the user to find
+		const names = ["Luna", "Oliver", "Bella", "Leo", "Milo", "Lily", "Lucy", "Nala", "Charlie", "Max"]
 		for (var i = 0; i < 10; i++) {
 
 			// make a polar offset (radius, theta) 
@@ -50,7 +51,7 @@ let map = new InteractiveMap({
 			let position = clonePolarOffset(NU_CENTER, 400*Math.random() + 300, 20*Math.random())
 			this.createLandmark({
 				pos: position,
-				name: words.getRandomWord(),
+				name: names[i],
 			})
 		}
 	},
